@@ -37,6 +37,15 @@ func affinityFields() map[string]*schema.Schema {
 				Schema: podAffinityFields(),
 			},
 		},
+		"namespace_selector": {
+			Type:        schema.TypeList,
+			Description: "A label query over the set of namespaces",
+			Optional:    true,
+			MaxItems:    1,
+			Elem: &schema.Resource{
+				Schema: labelSelectorFields(true),
+			},
+		},
 	}
 }
 
